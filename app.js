@@ -1,3 +1,4 @@
+const bodyparser = require('body-parser');
 const express = require('express');
 
 const WebhookRouter = require('./routes/WebhookRouter');
@@ -5,13 +6,12 @@ const WebhookRouter = require('./routes/WebhookRouter');
 const createApp = {
   init() {
     this.app = express();
-    //this.middleware();
+    this.middleware();
     this.routes();
 
     return this.app;
   },
   middleware() {
-    this.app.use(cors());
     this.app.use(bodyparser.json());
     this.app.use(bodyparser.urlencoded({ extended: false }));
   },
