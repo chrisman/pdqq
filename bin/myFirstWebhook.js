@@ -11,6 +11,7 @@ const callbackURL = "https://pdqq.herokuapp.com/webhooks/hello-world";
 const description = "My first webhook";
 const idModel = process.env.LIST_ID_TODO;
 
+// TODO: fix authentication
 const body = JSON.stringify({
   active,
   callbackURL,
@@ -19,12 +20,10 @@ const body = JSON.stringify({
   key,
 });
 
-console.log(body);
-
 fetch(url, { method: 'POST', body })
-.then(res => {
-  console.log(res);
-  return res.json();
-})
-.then(json => console.log(json))
-.catch(err => console.error(err))
+  .then(res => {
+    console.log(res);
+    return res.json();
+  })
+  .then(json => console.log(json))
+  .catch(err => console.error(err))
