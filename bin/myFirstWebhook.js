@@ -16,6 +16,7 @@ const body = JSON.stringify({
   callbackURL,
   description,
   idModel,
+  key,
 });
 
 console.log(body);
