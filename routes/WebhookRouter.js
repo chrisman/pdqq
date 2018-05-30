@@ -3,12 +3,18 @@ const express = require('express');
 const WebhookRouter = {
   init(req, res, next) {
     this.router = express.Router();
-    this.router.get('/hello-world', this.helloWorld);
+    this.router.get('/hello-world', this.helloWorldGet);
+    this.router.post('/hello-world', this.helloWorldPost);
     return this.router;
   },
-  helloWorld(req, res, next) {
-    res.json({ message: 'Success'});
+  helloWorldGet(req, res, next) {
+    res.status(200).json({message: "Hello World!"});
     console.log('Hello World!');
+  },
+  helloWorldPost(req, res, next) {
+    console.log(req.body);
+    res.status(201).json({message: "New hook!"});
+    console.log('New hook!');
   },
 }
 
