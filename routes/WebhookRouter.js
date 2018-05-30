@@ -13,7 +13,7 @@ const WebhookRouter = {
   },
   helloWorldPost(req, res, next) {
     console.log(req.body);
-    res.status(410).json({message: "Gone"});
+    res.status(201).json({message: "New hook!"});
     console.log('New hook!');
   },
 }
